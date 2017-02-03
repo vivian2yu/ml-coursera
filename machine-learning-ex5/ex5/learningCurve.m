@@ -52,10 +52,18 @@ error_val   = zeros(m, 1);
 %
 
 % ---------------------- Sample Solution ----------------------
+for i = 1:m
+    Xset = X(1:i, :);
+    yset = y(1:i);
+    % evaluate theta on training set
+    theta = trainLinearReg(Xset, yset, lambda);
 
-
-
-
+    % calculate training and cross-reference error
+    error_train(i) = linearRegCostFunction(Xset, yset, theta, 0);
+    % cross-reference error is on the entire set
+    % using theta calculated from training set
+    error_val(i) = linearRegCostFunction(Xval, yval, theta, 0);
+end
 
 
 
