@@ -99,10 +99,9 @@ while ~isempty(email_contents)
 
 
 
-
-
-
-
+    index = find(strcmp(vocabList, str) == 1);
+    word_indices = [word_indices; index];
+    
 
 
 
